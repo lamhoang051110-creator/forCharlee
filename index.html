@@ -119,8 +119,13 @@
 
   <div id="answer">YAY 💕 I love you my girl<3</div>
 
-  <!-- Background Music -->
   <audio id="music" src="music.mp3" autoplay loop></audio>
+
+  const music = document.getElementById("bgMusic");
+
+document.body.addEventListener("click", () => {
+  music.play();
+}, { once: true });
 
   <script>
     const yesBtn = document.getElementById("yesBtn");
@@ -141,3 +146,4 @@
 
 </body>
 </html>
+
