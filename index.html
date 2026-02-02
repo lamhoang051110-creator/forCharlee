@@ -10,6 +10,7 @@
       font-family: Arial, sans-serif;
       background: pink;
       text-align: center;
+      overflow-x: hidden;
     }
 
     h1 {
@@ -19,9 +20,11 @@
     .letter {
       max-width: 600px;
       margin: 20px auto;
-      background: rgba(255,255,255,0.8);
-      padding: 20px;
-      border-radius: 12px;
+      background: rgba(255,255,255,0.85);
+      padding: 25px;
+      border-radius: 14px;
+      font-size: 18px;
+      line-height: 1.6;
     }
 
     .gallery {
@@ -45,11 +48,12 @@
 
     button {
       font-size: 18px;
-      padding: 10px 20px;
+      padding: 10px 24px;
       margin: 10px;
       border: none;
       border-radius: 20px;
       cursor: pointer;
+      position: relative;
     }
 
     #yesBtn {
@@ -62,9 +66,10 @@
     }
 
     #answer {
-      font-size: 24px;
-      margin-top: 20px;
+      font-size: 26px;
+      margin-top: 30px;
       display: none;
+      color: #c2185b;
     }
   </style>
 </head>
@@ -74,11 +79,11 @@
 <h1>Dear Charlee 💗</h1>
 
 <div class="letter">
-  From the moment I met you, everything felt different...
-</p>
+  <p id="letterText">
+    From the moment I met you, everything felt different…
+  </p>
 </div>
 
-  
 <div class="gallery">
   <img src="pics/1.jpg">
   <img src="pics/2.jpg">
@@ -94,55 +99,38 @@
   <button id="noBtn">NO 😭</button>
 </div>
 
-<div id="answer">YAY 💞 Thank you for chose me i love you my valentine <3</div>
+<div id="answer">YAY 💞 Thank you for choosing me, my Valentine 💗</div>
 
 <audio id="bgMusic" src="music.mp3" loop></audio>
 
 <script>
   const music = document.getElementById("bgMusic");
-  document.addEventListener("click", () => {
-  music.play();
-}, { once: true });
   const noBtn = document.getElementById("noBtn");
   const yesBtn = document.getElementById("yesBtn");
   const answer = document.getElementById("answer");
-  noBtn.addEventListener("mouseover", () => {
-  const btnWidth = noBtn.offsetWidth;
-  const btnHeight = noBtn.offsetHeight;
+  const letterText = document.getElementById("letterText");
 
-  const maxX = window.innerWidth - btnWidth;
-  const maxY = window.innerHeight - btnHeight;
 
-  const x = Math.random() * maxX;
-  const y = Math.random() * maxY;
-
-  noBtn.style.position = "fixed";
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
-});
-
-  document.body.addEventListener("click", () => {
+  document.addEventListener("click", () => {
     music.play();
   }, { once: true });
 
+
   noBtn.addEventListener("mouseover", () => {
-    noBtn.style.position = "absolute";
-    noBtn.style.left = Math.random() * 80 + "vw";
-    noBtn.style.top = Math.random() * 80 + "vh";
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+    noBtn.style.position = "fixed";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
   });
 
 
   yesBtn.addEventListener("click", () => {
     answer.style.display = "block";
+    letterText.textContent = "I guess this means I’m the luckiest person today 💕";
   });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
