@@ -94,7 +94,7 @@
   <button id="noBtn">NO 😭</button>
 </div>
 
-<div id="answer">YAY 💞 I knew it!</div>
+<div id="answer">YAY 💞 Thank you for chose me i love you my valentine <3</div>
 
 <audio id="bgMusic" src="music.mp3" loop></audio>
 
@@ -103,7 +103,20 @@
   const noBtn = document.getElementById("noBtn");
   const yesBtn = document.getElementById("yesBtn");
   const answer = document.getElementById("answer");
+  noBtn.addEventListener("mouseover", () => {
+  const btnWidth = noBtn.offsetWidth;
+  const btnHeight = noBtn.offsetHeight;
 
+  const maxX = window.innerWidth - btnWidth;
+  const maxY = window.innerHeight - btnHeight;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  noBtn.style.position = "fixed";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
 
   document.body.addEventListener("click", () => {
     music.play();
@@ -124,4 +137,5 @@
 
 </body>
 </html>
+
 
