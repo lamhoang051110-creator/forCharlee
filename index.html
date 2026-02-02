@@ -100,6 +100,9 @@
 
 <script>
   const music = document.getElementById("bgMusic");
+  document.addEventListener("click", () => {
+  music.play();
+}, { once: true });
   const noBtn = document.getElementById("noBtn");
   const yesBtn = document.getElementById("yesBtn");
   const answer = document.getElementById("answer");
@@ -137,5 +140,6 @@
 
 </body>
 </html>
+
 
 
