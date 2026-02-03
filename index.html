@@ -144,13 +144,24 @@
   });
 
   // YES button
-  yesBtn.addEventListener("click", () => {
-    answer.style.display = "block";
-  });
+yesBtn.addEventListener("click", () => {
+  answer.style.display = "block";
+  document.getElementById("weezerSection").style.display = "block";
+});
+  const weezerBtn = document.getElementById("weezerBtn");
+const weezerReveal = document.getElementById("weezerReveal");
+
+weezerBtn.addEventListener("click", () => {
+  document.body.classList.add("blue-mode");
+  weezerReveal.style.display = "block";
+  weezerBtn.style.display = "none";
+});
+
 </script>
 
 </body>
 </html>
+
 
 
 
