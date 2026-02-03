@@ -5,62 +5,19 @@
   <title>Dear Charlee 💗</title>
 
   <style>
-    background-image: url("weezer.jpg");
-    #weezerOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
-  background-image: url("weezer.jpg");
-  background-size: cover;      
-  background-position: center;
-  background-repeat: no-repeat;
-
-  background-color: #0099cc;  
-  
-  z-index: 9999;             
-  display: none;
-}
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+    }
 
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
       background: pink;
       text-align: center;
+      transition: background 1s ease, color 1s ease;
       overflow-x: hidden;
     }
-
-.blue-mode {
-  background: #0099cc;
-  color: white;
-  transition: all 1s ease;
-}
-
-.blue-mode .letter {
-  background: rgba(255, 255, 255, 0.25);
-}
-
-.blue-mode h1,
-.blue-mode h2,
-.blue-mode p,
-.blue-mode div {
-  color: white;
-}
-.blue-mode button {
-  background: white;
-  color: #0099cc;
-}
-body {
-  transition: background 1s ease, color 1s ease;
-}
-
-    html, body {
-  width: 100%;
-  min-height: 100vh;
-}
-document.body.classList.add("blue-mode");
 
     .letter {
       max-width: 600px;
@@ -98,7 +55,6 @@ document.body.classList.add("blue-mode");
       border: none;
       border-radius: 20px;
       cursor: pointer;
-      position: relative;
     }
 
     #yesBtn {
@@ -116,31 +72,57 @@ document.body.classList.add("blue-mode");
       display: none;
       color: #c2185b;
     }
+
+    /* 🌤 BLUE SKY MODE */
+    .blue-mode {
+      background: #0099cc;
+      color: white;
+    }
+
+    .blue-mode .letter {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .blue-mode h1,
+    .blue-mode h2,
+    .blue-mode p,
+    .blue-mode div {
+      color: white;
+    }
+
+    .blue-mode button {
+      background: white;
+      color: #0099cc;
+    }
+
+    /* 🎸 WEEZER OVERLAY */
+    #weezerOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #0099cc url("weezer.jpg") center / cover no-repeat;
+      z-index: 9999;
+      display: none;
+    }
   </style>
 </head>
-<div id="weezerSection" style="display:none; margin-top:30px;">
-  <button id="weezerBtn">one more thing 💙</button>
-
-  <div id="weezerReveal" style="display:none; margin-top:20px;">
-    <img src="weezer.jpg" style="width:300px; border-radius:12px;">
-    <p style="color:white; font-size:18px;">
-      HAHAHAHAHAHA WEEZERED
-    </p>
-  </div>
-</div>
-  
-  <div id="weezerOverlay"></div>
 
 <body>
 
 <h1>Dear Charlee 💗</h1>
 
 <div class="letter">
-  <p id="letterText">
-    <p>Before we start. Pls double-click anywhere on the screen</p>
-    <p>good girl</p>
-    <p>now we start...</p>
-  <p>Dear Charlee. I wish you a wonderful Valentine's Day, and i wrote this for you (yes just you not anyone else). I know it's look soo bad and i should make it better but this is the best i can do, Now go to the main part. You know this is my first valentine </p>
+  <p>Before we start, please double-click anywhere on the screen.</p>
+  <p>Good girl.</p>
+  <p>Now we start…</p>
+
+  <p>
+    Dear Charlee, I wish you a wonderful Valentine’s Day.
+    I wrote this just for you — no one else.
+    It might not be perfect, but it’s honest.
+    And yes… this is my first Valentine 💗
   </p>
 </div>
 
@@ -159,7 +141,13 @@ document.body.classList.add("blue-mode");
   <button id="noBtn">NO 😭</button>
 </div>
 
-<div id="answer">YAY 💞 Thank you for choosing me, my Valentine 💗</div>
+<div id="answer">
+  YAY 💞 Thank you for choosing me, my Valentine 💗  
+  <br><br>
+  <button id="weezerBtn">one more thing 💙</button>
+</div>
+
+<div id="weezerOverlay"></div>
 
 <audio id="bgMusic" src="music.mp3" loop></audio>
 
@@ -168,13 +156,15 @@ document.body.classList.add("blue-mode");
   const noBtn = document.getElementById("noBtn");
   const yesBtn = document.getElementById("yesBtn");
   const answer = document.getElementById("answer");
+  const weezerOverlay = document.getElementById("weezerOverlay");
+  const weezerBtn = document.getElementById("weezerBtn");
 
-  // Play music on first click anywhere
+  // music on first click
   document.addEventListener("click", () => {
     music.play();
   }, { once: true });
 
-  // NO button runs away
+  // NO button runs
   noBtn.addEventListener("mouseover", () => {
     const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
     const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
@@ -184,30 +174,21 @@ document.body.classList.add("blue-mode");
   });
 
   // YES button
-yesBtn.addEventListener("click", () => {
-  answer.style.display = "block";
-  document.getElementById("weezerSection").style.display = "block";
-});
-  const weezerBtn = document.getElementById("weezerBtn");
-const weezerReveal = document.getElementById("weezerReveal");
+  yesBtn.addEventListener("click", () => {
+    answer.style.display = "block";
+  });
 
-weezerBtn.addEventListener("click", () => {
-  document.body.classList.add("blue-mode");
-  weezerReveal.style.display = "block";
-  weezerBtn.style.display = "none";
-});
+  // Weezer reveal
+  weezerBtn.addEventListener("click", () => {
+    document.body.classList.add("blue-mode");
+    weezerOverlay.style.display = "block";
+  });
 
+  // click to escape weezer
+  weezerOverlay.addEventListener("click", () => {
+    weezerOverlay.style.display = "none";
+  });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
