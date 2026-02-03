@@ -5,6 +5,24 @@
   <title>Dear Charlee 💗</title>
 
   <style>
+    #weezerOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url("weezer.jpg");
+  background-size: cover;      
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-color: #0099cc;  
+  
+  z-index: 9999;             
+  display: none;
+}
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -109,8 +127,9 @@ document.body.classList.add("blue-mode");
     </p>
   </div>
 </div>
-
   
+  <div id="weezerOverlay"></div>
+
 <body>
 
 <h1>Dear Charlee 💗</h1>
@@ -181,6 +200,7 @@ weezerBtn.addEventListener("click", () => {
 
 </body>
 </html>
+
 
 
 
