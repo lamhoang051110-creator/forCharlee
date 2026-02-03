@@ -14,7 +14,7 @@
     }
 
 .blue-mode {
-  background: #5dade2;
+  background: #0099cc;
   color: white;
   transition: all 1s ease;
 }
@@ -25,18 +25,23 @@
 
 .blue-mode h1,
 .blue-mode h2,
-.blue-mode p {
+.blue-mode p,
+.blue-mode div {
   color: white;
 }
-
 .blue-mode button {
   background: white;
-  color: #5dade2;
+  color: #0099cc;
 }
 body {
   transition: background 1s ease, color 1s ease;
 }
 
+    html, body {
+  width: 100%;
+  min-height: 100vh;
+}
+document.body.classList.add("blue-mode");
 
     .letter {
       max-width: 600px;
@@ -176,6 +181,7 @@ weezerBtn.addEventListener("click", () => {
 
 </body>
 </html>
+
 
 
 
