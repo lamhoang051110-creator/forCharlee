@@ -73,7 +73,7 @@
       color: #c2185b;
     }
 
-    /* 🌤 BLUE SKY MODE */
+    /* 🌤 BLUE MODE */
     .blue-mode {
       background: #0099cc;
       color: white;
@@ -149,22 +149,25 @@
 
 <div id="weezerOverlay"></div>
 
+<!-- 🎵 AUDIO -->
 <audio id="bgMusic" src="music.mp3" loop></audio>
+<audio id="weezerMusic" src="buddyholly.mp3"></audio>
 
 <script>
   const music = document.getElementById("bgMusic");
+  const weezerMusic = document.getElementById("weezerMusic");
   const noBtn = document.getElementById("noBtn");
   const yesBtn = document.getElementById("yesBtn");
   const answer = document.getElementById("answer");
   const weezerOverlay = document.getElementById("weezerOverlay");
   const weezerBtn = document.getElementById("weezerBtn");
 
-  // music on first click
+  // soft music on first click
   document.addEventListener("click", () => {
     music.play();
   }, { once: true });
 
-  // NO button runs
+  // NO button runs away
   noBtn.addEventListener("mouseover", () => {
     const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
     const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
@@ -178,15 +181,22 @@
     answer.style.display = "block";
   });
 
-  // Weezer reveal
+  // 🎸 WEEZER JUMPSCARE
   weezerBtn.addEventListener("click", () => {
+    music.pause();
+    music.currentTime = 0;
+
     document.body.classList.add("blue-mode");
     weezerOverlay.style.display = "block";
+
+    weezerMusic.play();
   });
 
-  // click to escape weezer
+  // click overlay to exit
   weezerOverlay.addEventListener("click", () => {
     weezerOverlay.style.display = "none";
+    weezerMusic.pause();
+    weezerMusic.currentTime = 0;
   });
 </script>
 
